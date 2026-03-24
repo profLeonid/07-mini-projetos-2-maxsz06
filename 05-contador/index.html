@@ -4,7 +4,8 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contador</title>
-  <script src="./script.js"></script>
+  <script src="./model/funcoes.js"></script>
+  <script src="./model/manipular.js"></script>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -18,15 +19,15 @@
 
     <div class="campo">
       <label>Quantidade</label>
-      <input type="number" placeholder="Ex: 5" id="numero"/>
+      <input type="number" placeholder="Ex: 5" id="quantidade"/>
     </div>
 
-    <button>Gerar</button>
+    <button id="gerarNumeros">Gerar</button>
 
     <div class="resultado">
       <p class="resultado-titulo">Resultado</p>
       <div class="tabela-wrapper">
-        <table>
+        <table id="tabela">
           <thead>
             <tr>
               <th>Contagem</th>

@@ -133,3 +133,12 @@ tbody td {
   padding: 12px;
   font-size: 0.95rem;
 }
+
+tr.linha-preta {
+  background-color: #000;
+  height: 40px;
+}
+
+tr.linha-preta td {
+  border: 1px solid #000;
+}
