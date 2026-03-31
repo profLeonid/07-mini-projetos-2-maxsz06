@@ -132,6 +132,9 @@ tbody tr {
 tbody td {
   padding: 12px;
   font-size: 0.95rem;
+  border-top: 1px solid #374151;
+  border-bottom: 1px solid #374151;
+
 }
 
 tr.linha-preta {
@@ -141,4 +144,45 @@ tr.linha-preta {
 
 tr.linha-preta td {
   border: 1px solid #000;
+}
+
+.tabela-wrapper {
+  overflow-x: auto;
+  overflow-y: auto;        /* adiciona scroll vertical */
+  max-height: 400px;       /* altura máxima antes de rolar */
+}
+
+#tabela thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #030712; /* mesma cor do body */
+}
+
+#tabela-header,
+#tabela {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+#tabela-header thead th {
+  color: #9ca3af;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #374151;
+}
+
+.tabela-wrapper {
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 400px;
+}
+
+.tabela-resposta {
+  border-collapse: separate;
+  border-spacing: 0 8px; /* 0 horizontal, 8px vertical entre linhas */
 }

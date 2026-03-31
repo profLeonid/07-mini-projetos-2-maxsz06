@@ -1,60 +1,47 @@
 'use strict'
 
-function criarListaNumeros (quantidade){
-
+function criarListaNumeros(quantidade) {
     let listaNumeros = []
-
-    for (let i = 0; i <= quantidade; i++ ){
+    for (let i = 0; i <= quantidade; i++) {
         listaNumeros.push(i)
     }
     return listaNumeros
 }
 
-function criarListaPares (quantidade){
-
+function criarListaPares(quantidade) {
     let listaNumeros = []
-
-    for (let i=0; i <= quantidade; i+=2){
+    for (let i = 0; i <= quantidade; i += 2) {
         listaNumeros.push(i)
     }
-        return listaNumeros
+    return listaNumeros
 }
 
-function criarListaImpares (quantidade){
-
+function criarListaImpares(quantidade) {
     let listaNumeros = []
-
-    for (let i = 1; i< quantidade; i+=2){
+    for (let i = 1; i < quantidade; i += 2) {
         listaNumeros.push(i)
     }
-        return listaNumeros
+    return listaNumeros
 }
 
-function listaMultiplo5(quantidade){
-
-    let listaNumeros=[]
-
-    for (let i = 0; i<quantidade; i+=5){
+function criarListaMulti5(quantidade) {  // ✅ nome corrigido
+    let listaNumeros = []
+    for (let i = 0; i < quantidade; i += 5) {
         listaNumeros.push(i)
     }
-        return listaNumeros
+    return listaNumeros
 }
 
-function listaPotencia2(quantidade) {
+function criarListaPotencia2(quantidade) {  // ✅ nome corrigido
     let listaNumeros = []
-
-    for (let i = 0; i < quantidade; i++) {  
-        listaNumeros.push(2 ** i)          
+    for (let i = 0; i < quantidade; i++) {
+        listaNumeros.push(2 ** i)
     }
-
-    return listaNumeros  
+    return listaNumeros
 }
 
-
-function criarLinha(numero,par, impar, multi5, potencia2) {
-
-    const tabela = document.getElementById('tabela')
-
+function criarLinha(numero, par, impar, multi5, potencia2) {
+    const tbody = document.getElementById('tabela').querySelector('tbody')
     const tr = document.createElement('tr')
 
     const tdNumeros = document.createElement('td')
@@ -72,14 +59,17 @@ function criarLinha(numero,par, impar, multi5, potencia2) {
     const tdPotencia2 = document.createElement('td')
     tdPotencia2.textContent = potencia2
 
-    tr.replaceChildren(tdNumeros, tdPares, tdImpares, tdMulti5, tdPotencia2)
+    tr.appendChild(tdNumeros)
+    tr.appendChild(tdPares)
+    tr.appendChild(tdImpares)
+    tr.appendChild(tdMulti5)
+    tr.appendChild(tdPotencia2)
 
     tabela.appendChild(tr)
 }
 
-function prenchertabela(){
-
-    const quantidade= Number(document.getElementById('quantidade').value)
+function preencherTabela() {
+    const quantidade = Number(document.getElementById('quantidade').value)
 
     const listaNumeros = criarListaNumeros(quantidade)
     const listaPares = criarListaPares(quantidade)
@@ -87,16 +77,14 @@ function prenchertabela(){
     const listaMultiplo5 = criarListaMulti5(quantidade)
     const listaPotencia2 = criarListaPotencia2(quantidade)
 
-    document.getElementById('tabela').replaceChildren()
+    document.getElementById('tabela').querySelector('tbody').replaceChildren()
 
-    for(let i = 0; i < quantidade; i ++){
-        criarLinha(listaNumeros[i], listaImpares[i],listaPares[i],listaMultiplo5[i],listaPotencia2[i])
+    for (let i = 0; i < quantidade; i++) {
+        criarLinha(listaNumeros[i], listaPares[i], listaImpares[i], listaMultiplo5[i], listaPotencia2[i])
     }
 }
 
-
-
-function gerarNumeros(){
-
-prenchertabela()
+function gerarNumeros() {
+    preencherTabela()
+    
 }

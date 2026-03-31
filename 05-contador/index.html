@@ -4,8 +4,8 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contador</title>
-  <script src="./model/funcoes.js"></script>
-  <script src="./model/manipular.js"></script>
+  <script src="./model/funcoes.js" defer></script>
+  <script src="./model/manipular.js" defer></script>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -22,39 +22,30 @@
       <input type="number" placeholder="Ex: 5" id="quantidade"/>
     </div>
 
-    <button id="gerarNumeros">Gerar</button>
+    <button id="gerarNumeros" onclick="gerarNumeros()">Gerar</button>
 
     <div class="resultado">
       <p class="resultado-titulo">Resultado</p>
+    
+      <!-- Cabeçalho fixo -->
+      <table id="tabela-header">
+        <thead>
+          <tr>
+            <th>Contagem</th>
+            <th>Pares</th>
+            <th>Ímpares</th>
+            <th>Múlt. de 5</th>
+            <th>Potências de 2</th>
+          </tr>
+        </thead>
+      </table>
+    
       <div class="tabela-wrapper">
-        <table id="tabela">
-          <thead>
-            <tr>
-              <th>Contagem</th>
-              <th>Pares</th>
-              <th>Ímpares</th>
-              <th>Múlt. de 5</th>
-              <th>Potências de 2</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>2</td>
-              <td>1</td>
-              <td>5</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>4</td>
-              <td>3</td>
-              <td>10</td>
-              <td>2</td>
-            </tr>
-          </tbody>
+        <table class="tabela-resposta" id="tabela">
+          <tbody></tbody>
         </table>
       </div>
+    
     </div>
 
   </div>
